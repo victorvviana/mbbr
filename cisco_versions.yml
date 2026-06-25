@@ -1,0 +1,15 @@
+- name: Consultar versão do IOS
+  hosts: all
+  gather_facts: no
+  connection: network_cli
+
+  tasks:
+    - name: Executar show version
+      cisco.ios.ios_command:
+        commands:
+          - show version
+      register: output
+
+    - name: Mostrar resultado
+      debug:
+        var: output.stdout[0]
