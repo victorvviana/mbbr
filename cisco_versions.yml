@@ -9,6 +9,11 @@
           - show version
       register: output
 
-    - name: Mostrar resultado
+    - name: Extrair versão do IOS
+      set_fact:
+        ios_version: "{{ output.stdout[0] | regex_search('Version ([0-9\\.]+)', '\\1') }}"
+
+    - name: Mostrar versão limpa
       debug:
-        var: output.stdout[0]
+        msg: "{{ inventory_hostname }} -> IOS {{ ios_version }}"
+``
