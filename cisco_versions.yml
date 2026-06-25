@@ -4,8 +4,11 @@
 
   tasks:
     - name: Executar show version
-      command: show version
+      cisco.ios.ios_command:
+        commands:
+          - show version
       register: output
 
-    - debug:
-        var: output.stdout
+    - name: Mostrar resultado
+      debug:
+        var: output.stdout[0]
