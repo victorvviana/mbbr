@@ -4,15 +4,8 @@
 
   tasks:
     - name: Executar show version
-      cisco.ios.ios_command:
-        commands:
-          - show version
+      command: show version
       register: output
 
-    - name: Extrair versão do IOS
-      set_fact:
-        ios_version: "{{ output.stdout[0] | regex_search('Version ([0-9\\.]+)', '\\1') }}"
-
-    - name: Mostrar versão limpa
-      debug:
-        msg: "{{ inventory_hostname }} -> IOS {{ ios_version }}"
+    - debug:
+        var: output.stdout
