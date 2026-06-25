@@ -16,4 +16,3 @@
     - name: Mostrar versão limpa
       debug:
         msg: "{{ inventory_hostname }} -> IOS {{ ios_version }}"
-``
