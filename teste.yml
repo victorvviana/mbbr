@@ -1,0 +1,7 @@
+---
+- name: Teste rápido
+  hosts: all
+  tasks:
+    - name: Hello World Ansible
+      debug:
+        msg: "Ansible rodando com sucesso no Semaphore!"
