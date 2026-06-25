@@ -1,7 +1,10 @@
 ---
 - name: Teste rápido
-  hosts: all
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
   tasks:
-    - name: Hello World Ansible
-      debug:
-        msg: "Ansible rodando com sucesso no Semaphore!"
+    - debug:
+        msg: "Funcionando 🚀"
+``
